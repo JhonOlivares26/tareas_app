@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-PreferredSizeWidget AppBarContact(String title) {
+PreferredSizeWidget appBar(String title) {
   return AppBar(
     title: Text(
       title,
