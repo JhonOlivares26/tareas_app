@@ -9,22 +9,30 @@ String? validatorTitulo(String? titulo) {
   return null;
 }
 
-String? validatorDescripcion(String? descricion) {
-  if (descricion == null || descricion.isEmpty) {
-    return "La descrición es obligatoria";
+String? validatorDescripcion(String? descripcion) {
+  if (descripcion == null || descripcion.isEmpty) {
+    return "La descripción es obligatoria";
   }
   return null;
 }
 
-saveTarea(GlobalKey<FormState> _key,
-    {required String? titulo, required String? descricion, required bool? completado, required TareaProvider provider}) {
-  // Lógica
-  if (_key.currentState!.validate()) {
-    _key.currentState!.save();
-    if (titulo != null && descricion != null && completado != null) {
-      print(titulo);
-      Tarea tarea = Tarea(titulo: titulo, descricion: descricion, completado: completado);
-      provider.addTarea(tarea);
+void saveTarea({
+  required GlobalKey<FormState> key,
+  required String? titulo,
+  required String? descripcion,
+  required bool? completado,
+  required TareaProvider provider,
+}) {
+  // Lógica para validar y guardar la tarea
+  if (key.currentState!.validate()) {
+    key.currentState!.save();
+    if (titulo != null && descripcion != null && completado != null) {
+      Tarea tarea = Tarea(
+        titulo: titulo,
+        descripcion: descripcion,
+        completado: completado,
+      );
+      provider.addTarea(tarea); // Llama al método addTarea del TareaProvider
     }
   }
 }

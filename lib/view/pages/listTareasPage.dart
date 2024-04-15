@@ -32,7 +32,7 @@ class listTareaPage extends StatelessWidget {
       Tarea tarea = tareas[index];
       return ListTile(
         title: Text(tarea.titulo),
-        subtitle: Text(tarea.descricion),
+        subtitle: Text(tarea.descripcion),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [

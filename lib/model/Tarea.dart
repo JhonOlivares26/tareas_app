@@ -1,8 +1,20 @@
 class Tarea {
   String titulo;
-  String descricion;
+  String descripcion;
   bool completado;
 
-  Tarea({required this.titulo, required this.descricion, required this.completado});
+  Tarea({
+    required this.titulo,
+    required this.descripcion,
+    this.completado = false,
+  });
 
+  // Método para convertir un objeto Tarea en un mapa para Firestore
+  Map<String, dynamic> toMap() {
+    return {
+      'titulo': titulo,
+      'descripcion': descripcion,
+      'completado': completado,
+    };
+  }
 }

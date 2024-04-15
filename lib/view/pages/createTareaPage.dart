@@ -56,8 +56,13 @@ class _CreateTareaPageState extends State<CreateTareaPage> {
               },
             ),
             TextButton(
-              onPressed: () => saveTarea(_key,
-                  titulo: titulo, descricion: descricion, completado: completado, provider: tareaProvider),
+              onPressed: () => saveTarea(
+                key: _key, // Pasar el _key como argumento
+                titulo: titulo,
+                descripcion: descricion,
+                completado: completado,
+                provider: tareaProvider,
+              ),
               child: const Text("Guardar tarea"),
             )
           ],
